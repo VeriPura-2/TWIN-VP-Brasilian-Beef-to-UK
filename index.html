@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Brazil → GB Beef Import Process Flow — VeriPura × TWIN</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #f5f4f0; color: #1a1a18; padding: 2rem; }
+  .page { max-width: 900px; margin: 0 auto; }
+  .flow-header { background: #fff; border-radius: 12px; border: 0.5px solid #d3d1c7; padding: 1.5rem 1.75rem; margin-bottom: 1rem; }
+  .flow-title { font-size: 20px; font-weight: 500; color: #1a1a18; margin-bottom: 4px; }
+  .flow-sub { font-size: 13px; color: #5f5e5a; margin-bottom: 1rem; }
+  .legend { display: flex; gap: 20px; flex-wrap: wrap; align-items: center; }
+  .legend-item { display: flex; align-items: center; gap: 6px; font-size: 12px; color: #5f5e5a; }
+  .legend-dot { width: 10px; height: 10px; border-radius: 50%; }
+  .hypothesis-banner { background: #e6f1fb; border: 0.5px solid #b5d4f4; border-radius: 8px; padding: 10px 14px; margin-bottom: 1rem; font-size: 12px; color: #185fa5; line-height: 1.55; }
+  .hypothesis-banner strong { font-weight: 500; }
+  .phase { background: #fff; border: 0.5px solid #d3d1c7; border-radius: 10px; margin-bottom: 8px; overflow: hidden; }
+  .phase-header { display: flex; align-items: center; gap: 12px; padding: 11px 16px; cursor: pointer; background: #fafaf8; user-select: none; transition: background 0.15s; }
+  .phase-header:hover { background: #f0efe9; }
+  .phase-num { font-size: 11px; font-weight: 500; color: #888780; min-width: 22px; }
+  .phase-name { font-size: 14px; font-weight: 500; color: #1a1a18; flex: 1; }
+  .phase-loc { font-size: 12px; color: #888780; }
+  .chevron { font-size: 13px; color: #888780; transition: transform 0.2s; display: inline-block; }
+  .phase.open .chevron { transform: rotate(90deg); }
+  .phase-body { display: none; padding: 14px 16px 16px; border-top: 0.5px solid #d3d1c7; }
+  .phase.open .phase-body { display: block; }
+  .doc-list { font-size: 12px; color: #5f5e5a; margin-bottom: 12px; line-height: 1.7; }
+  .doc-list strong { color: #1a1a18; font-weight: 500; }
+  .action-row { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+  .action-card { border-radius: 8px; padding: 10px 12px; border: 0.5px solid; }
+  .action-vp { background: #eef2fb; border-color: #b5c4e8; }
+  .action-tw { background: #e8f5ef; border-color: #9fd4b8; }
+  .action-label { font-size: 10px; font-weight: 500; letter-spacing: 0.05em; text-transform: uppercase; margin-bottom: 5px; }
+  .label-vp { color: #3b5fc0; }
+  .label-tw { color: #1a7a4a; }
+  .action-text { font-size: 12px; color: #2c2c2a; line-height: 1.55; }
+  .connector { display: flex; justify-content: center; margin: 0; }
+  .connector-line { width: 1px; height: 8px; background: #b4b2a9; }
+  .footnote { margin-top: 1.25rem; padding: 12px 14px; border-radius: 8px; border: 0.5px solid #d3d1c7; background: #fafaf8; font-size: 12px; color: #5f5e5a; line-height: 1.6; }
+  .footnote strong { color: #1a1a18; font-weight: 500; }
+  .footer { margin-top: 1.5rem; font-size: 11px; color: #888780; text-align: center; }
+  @media print {
+    body { background: #fff; padding: 0; }
+    .phase-body { display: block !important; }
+    .chevron { display: none; }
+    .phase-header { cursor: default; }
+    .flow-header, .phase { break-inside: avoid; }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <div class="flow-header">
+    <div class="flow-title">Brazilian beef → Great Britain: import compliance process</div>
+    <div class="flow-sub">11 transaction phases · Order placement through GB customs clearance · Click any phase to expand</div>
+    <div class="hypothesis-banner">
+      <strong>Working hypothesis for discussion:</strong> VeriPura provides the compliance layer (document verification, structured outputs). TWIN provides the visibility layer (stakeholder access, agency relationships). Roles shown as a proposed model — not fixed ownership. To be explored on the call.
+    </div>
+    <div class="legend">
+      <div class="legend-item"><div class="legend-dot" style="background:#3b5fc0"></div>Compliance layer (VeriPura)</div>
+      <div class="legend-item"><div class="legend-dot" style="background:#1a7a4a"></div>Visibility layer (TWIN)</div>
+    </div>
+  </div>
+
+  <!-- Phase 1 -->
+  <div class="phase" id="p1">
+    <div class="phase-header" onclick="toggle('p1')">
+      <span class="phase-num">01</span>
+      <span class="phase-name">Pre-contract &amp; establishment eligibility</span>
+      <span class="phase-loc">Brazil</span>
+      <span class="chevron">›</span>
+    </div>
+    <div class="phase-body">
+      <div class="doc-list"><strong>Key documents:</strong> GB approved establishment list (Defra XLSX), APHA topical issues check, MAPA SIGSIF export eligibility confirmation, SIF registration certificate, HACCP documentation</div>
+      <div class="action-row">
+        <div class="action-card action-vp">
+          <div class="action-label label-vp">Compliance layer</div>
+          <div class="action-text">Automated check of live Defra establishment list — confirm SIF number is active and product-approved. APHA topical issues feed scanned for current suspensions or RASFF alerts. Result: go / no-go before order is placed.</div>
+        </div>
+        <div class="action-card action-tw">
+          <div class="action-label label-tw">Visibility layer</div>
+          <div class="action-text">Transaction record created on TWIN platform. Establishment eligibility status made available to relevant stakeholders (importer, insurer, buyer). Audit trail begins.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="connector"><div class="connector-line"></div></div>
+
+  <!-- Phase 2 -->
+  <div class="phase" id="p2">
+    <div class="phase-header" onclick="toggle('p2')">
+      <span class="phase-num">02</span>
+      <span class="phase-name">Commercial agreement &amp; purchase order</span>
+      <span class="phase-loc">Brazil / GB</span>
+      <span class="chevron">›</span>
+    </div>
+    <div class="phase-body">
+      <div class="doc-list"><strong>Key documents:</strong> Commercial contract / purchase order (HS code 0201 or 0202, age category, VC status, hormone-free requirement), product specification sheet, letter of credit</div>
+      <div class="action-row">
+        <div class="action-card action-vp">
+          <div class="action-label label-vp">Compliance layer</div>
+          <div class="action-text">Commercial contract ingested at intake. Product spec mapped to applicable regulatory requirements — age category triggers VC/SRM rules, hormone-free flag triggers SISBOV segregation requirement. Document profile built for the transaction.</div>
+        </div>
+        <div class="action-card action-tw">
+          <div class="action-label label-tw">Visibility layer</div>
+          <div class="action-text">Transaction linked to importer and exporter DID identities on TWIN. Commercial parameters (product type, volume, route) logged as structured metadata.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="connector"><div class="connector-line"></div></div>
+
+  <!-- Phase 3 -->
+  <div class="phase" id="p3">
+    <div class="phase-header" onclick="toggle('p3')">
+      <span class="phase-num">03</span>
+      <span class="phase-name">Brazilian export certification: production &amp; slaughter</span>
+      <span class="phase-loc">Brazil — SIF establishment</span>
+      <span class="chevron">›</span>
+    </div>
+    <div class="phase-body">
+      <div class="doc-list"><strong>Key documents:</strong> SISBOV cattle traceability records, farm health declaration, ante-mortem &amp; post-mortem inspection records, SRM/VC removal declaration (&gt;30 months), temperature logs, residue test results (PNCRC/PNPR), microbiological test results, packaging &amp; labelling records</div>
+      <div class="action-row">
+        <div class="action-card action-vp">
+          <div class="action-label label-vp">Compliance layer</div>
+          <div class="action-text">SISBOV farm-of-origin data ingested. Age verification checked — triggers mandatory SRM/VC removal pathway if &gt;30 months. Residue test results parsed against MRL thresholds (estradiol-17β, zeranol, trenbolone, melengestrol). Cold chain logs monitored. Deforestation risk screening via MapBiomas/PRODES cross-reference.</div>
+        </div>
+        <div class="action-card action-tw">
+          <div class="action-label label-tw">Visibility layer</div>
+          <div class="action-text">Supply chain trace path recorded on TWIN. Farm-of-origin linked to transaction record. MAPA OV inspection attestation logged as a signed event — verifiable by downstream parties without contacting MAPA directly.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="connector"><div class="connector-line"></div></div>
+
+  <!-- Phase 4 -->
+  <div class="phase" id="p4">
+    <div class="phase-header" onclick="toggle('p4')">
+      <span class="phase-num">04</span>
+      <span class="phase-name">Export Health Certificate (EHC) issuance</span>
+      <span class="phase-loc">Brazil — DIPOA certification centre</span>
+      <span class="chevron">›</span>
+    </div>
+    <div class="phase-body">
+      <div class="doc-list"><strong>Key documents:</strong> EHC 7060EHC Part I (trade/identification data) and Part II (12 health attestations inc. hormone-free, SRM/VC, BSE, FMD, microbiological, residue compliance) — current model version, wet MAPA OV signature and official DIPOA stamp required. Certificate of Authenticity if TRQ 05.4453 (grass-fed quota) claimed.</div>
+      <div class="action-row">
+        <div class="action-card action-vp">
+          <div class="action-label label-vp">Compliance layer</div>
+          <div class="action-text">EHC Part I fields extracted and mapped to transaction profile (SIF number, lot numbers, HS code, weight, CHED reference). Part II attestations parsed — each of the 12 attestations flagged present/absent/partial. Model version checked against current APHA published list. Weight cross-checked against commercial invoice and packing list.</div>
+        </div>
+        <div class="action-card action-tw">
+          <div class="action-label label-tw">Visibility layer</div>
+          <div class="action-text">EHC issuance event recorded on TWIN as a signed attestation. EHC reference, lot number, and SIF number committed to transaction record. SHA-256 hash of verified EHC anchored to IOTA Rebased L1 via Verifiable Credential (IOTA Identity 1.7).</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="connector"><div class="connector-line"></div></div>
+
+  <!-- Phase 5 -->
+  <div class="phase" id="p5">
+    <div class="phase-header" onclick="toggle('p5')">
+      <span class="phase-num">05</span>
+      <span class="phase-name">Brazilian export clearance</span>
+      <span class="phase-loc">Brazil — SISCOMEX / customs</span>
+      <span class="chevron">›</span>
+    </div>
+    <div class="phase-body">
+      <div class="doc-list"><strong>Key documents:</strong> Registro de Exportação (RE) — electronic export licence via SISCOMEX, Nota Fiscal Eletrônica (NF-e) — electronic tax invoice</div>
+      <div class="action-row">
+        <div class="action-card action-vp">
+          <div class="action-label label-vp">Compliance layer</div>
+          <div class="action-text">RE and NF-e ingested. NCM/HS codes cross-checked against commercial contract. Export licence validity confirmed. Documents added to transaction evidence bundle.</div>
+        </div>
+        <div class="action-card action-tw">
+          <div class="action-label label-tw">Visibility layer</div>
+          <div class="action-text">Brazilian export clearance status recorded on TWIN. Transaction record updated — consignment confirmed in transit.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="connector"><div class="connector-line"></div></div>
+
+  <!-- Phase 6 -->
+  <div class="phase" id="p6">
+    <div class="phase-header" onclick="toggle('p6')">
+      <span class="phase-num">06</span>
+      <span class="phase-name">Shipping &amp; commercial documentation</span>
+      <span class="phase-loc">Brazil / Ocean</span>
+      <span class="chevron">›</span>
+    </div>
+    <div class="phase-body">
+      <div class="doc-list"><strong>Key documents:</strong> Commercial invoice, packing list (must match EHC exactly), Bill of Lading (container and seal numbers), container temperature log / reefer data logger printout (continuous), reefer certificate, container seal certificate</div>
+      <div class="action-row">
+        <div class="action-card action-vp">
+          <div class="action-label label-vp">Compliance layer</div>
+          <div class="action-text">Packing list numerically cross-checked against EHC Part I (weight, lot numbers, carton count). Seal number extracted from B/L and recorded for later identity check matching. Cold chain logger data ingested — temperature maintained against regime (≤+7°C fresh / ≤-18°C frozen). Any exceedance flagged as a compliance failure.</div>
+        </div>
+        <div class="action-card action-tw">
+          <div class="action-label label-tw">Visibility layer</div>
+          <div class="action-text">Cold chain integrity status visible to permissioned stakeholders in real time during transit. Seal number and B/L reference linked to transaction record. Continuous temperature data available to insurer and buyer.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="connector"><div class="connector-line"></div></div>
+
+  <!-- Phase 7 -->
+  <div class="phase" id="p7">
+    <div class="phase-header" onclick="toggle('p7')">
+      <span class="phase-num">07</span>
+      <span class="phase-name">UK pre-arrival notification &amp; import licensing</span>
+      <span class="phase-loc">GB — IPAFFS / RPA</span>
+      <span class="chevron">›</span>
+    </div>
+    <div class="phase-body">
+      <div class="doc-list"><strong>Key documents:</strong> IPAFFS pre-notification (CHED-P) — mandatory, minimum 1 working day before arrival. CHED-P reference must appear in EHC Part I. TRQ Import Licence (Rural Payments Agency) and MAPA Certificate of Authenticity if quota 05.4453 claimed.</div>
+      <div class="action-row">
+        <div class="action-card action-vp">
+          <div class="action-label label-vp">Compliance layer</div>
+          <div class="action-text">CHED-P reference cross-checked against EHC Part I Box I.2. Pre-notification timing confirmed compliant (≥1 working day before arrival). TRQ licence validity and quota availability checked if applicable. CHED status tracked through BCP check stages.</div>
+        </div>
+        <div class="action-card action-tw">
+          <div class="action-label label-tw">Visibility layer</div>
+          <div class="action-text">Pre-arrival notification status available to APHA / Port Health Authority via TWIN — consignment expected, compliance pre-check completed. Key touchpoint for agency visibility ahead of physical arrival.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="connector"><div class="connector-line"></div></div>
+
+  <!-- Phase 8 -->
+  <div class="phase" id="p8">
+    <div class="phase-header" onclick="toggle('p8')">
+      <span class="phase-num">08</span>
+      <span class="phase-name">UK customs declaration</span>
+      <span class="phase-loc">GB — HMRC CDS</span>
+      <span class="chevron">›</span>
+    </div>
+    <div class="phase-body">
+      <div class="doc-list"><strong>Key documents:</strong> UK Customs Import Declaration (CDS) — commodity code (HS 0201/0202), importer EORI, CHED-P reference (code CHD), TRQ licence if applicable, customs value declaration</div>
+      <div class="action-row">
+        <div class="action-card action-vp">
+          <div class="action-label label-vp">Compliance layer</div>
+          <div class="action-text">CDS entry cross-referenced: commodity code accuracy, declared weight matching packing list, CHED reference present, correct tariff treatment (in-quota vs MFN). Commodity code validated against UK Global Tariff. Any discrepancy flagged pre-clearance.</div>
+        </div>
+        <div class="action-card action-tw">
+          <div class="action-label label-tw">Visibility layer</div>
+          <div class="action-text">Customs declaration status linked to transaction record on TWIN. Tariff treatment and duty outcome logged for importer and buyer records.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="connector"><div class="connector-line"></div></div>
+
+  <!-- Phase 9 -->
+  <div class="phase" id="p9">
+    <div class="phase-header" onclick="toggle('p9')">
+      <span class="phase-num">09</span>
+      <span class="phase-name">Border Control Post arrival checks</span>
+      <span class="phase-loc">GB — BCP (Liverpool, Grimsby, Tilbury, Hull, Heathrow)</span>
+      <span class="chevron">›</span>
+    </div>
+    <div class="phase-body">
+      <div class="doc-list"><strong>Key checks:</strong> Documentary (100% — EHC authentication, CHED match, invoice/packing list cross-check, temperature records). Identity checks (risk-based — seal integrity, label inspection, temperature spot-check). Physical checks (1–10% — hormone residue sampling, antibiotic testing, microbiological sampling, organoleptic assessment for fresh beef)</div>
+      <div class="action-row">
+        <div class="action-card action-vp">
+          <div class="action-label label-vp">Compliance layer</div>
+          <div class="action-text">Pre-verified compliance signal delivered to BCP before consignment arrives — EHC parsed, CHED matched, cold chain confirmed, residue flags surfaced. APHA OV documentary check outcome ingested from IPAFFS. Physical/lab results uploaded and compared against thresholds. Any detention or rejection recorded as a compliance event.</div>
+        </div>
+        <div class="action-card action-tw">
+          <div class="action-label label-tw">Visibility layer</div>
+          <div class="action-text">BCP check outcomes recorded as TWIN events — timestamped and linked to the CHED-P reference. Immutable audit log visible to permissioned parties (importer, insurer, buyer). This is the "game-changing" visibility touchpoint for Port Health Authorities flagged in TWIN's trials.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="connector"><div class="connector-line"></div></div>
+
+  <!-- Phase 10 -->
+  <div class="phase" id="p10">
+    <div class="phase-header" onclick="toggle('p10')">
+      <span class="phase-num">10</span>
+      <span class="phase-name">Post-BCP: movement &amp; ongoing compliance</span>
+      <span class="phase-loc">GB — first destination</span>
+      <span class="chevron">›</span>
+    </div>
+    <div class="phase-body">
+      <div class="doc-list"><strong>Key requirements:</strong> CHED-P accompanies consignment to first destination. 72-hour OV notification if VC-bearing cuts from &gt;30-month animals. Full document set retained minimum 12 months and available for APHA/FSA audit on demand.</div>
+      <div class="action-row">
+        <div class="action-card action-vp">
+          <div class="action-label label-vp">Compliance layer</div>
+          <div class="action-text">CHED-P Part II completion (APHA clearance) confirmed and linked. 72-hour OV notification obligation flagged automatically for applicable consignments. Compliance verdict (COMPLIANT / CONDITIONAL / NON-COMPLIANT) issued with full evidence chain and document reference index.</div>
+        </div>
+        <div class="action-card action-tw">
+          <div class="action-label label-tw">Visibility layer</div>
+          <div class="action-text">Final compliance verdict and all verified document hashes committed to IOTA Rebased L1 via Verifiable Credential (IOTA Identity 1.7 / W3C VC spec). Gas Station sponsored — no token requirement for importer or exporter. Immutable record available for audit, insurance, and buyer due diligence.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="connector"><div class="connector-line"></div></div>
+
+  <!-- Phase 11 -->
+  <div class="phase" id="p11">
+    <div class="phase-header" onclick="toggle('p11')">
+      <span class="phase-num">11</span>
+      <span class="phase-name">Environmental &amp; social compliance</span>
+      <span class="phase-loc">GB — ongoing</span>
+      <span class="chevron">›</span>
+    </div>
+    <div class="phase-body">
+      <div class="doc-list"><strong>Key requirements:</strong> UK Environment Act 2021 Schedule 17 (Forest Risk Commodities — secondary legislation pending as of March 2026). Modern Slavery Act 2015 transparency statement. Brazilian CAR (Rural Environmental Registry) and SISBOV geolocation data for future deforestation due diligence.</div>
+      <div class="action-row">
+        <div class="action-card action-vp">
+          <div class="action-label label-vp">Compliance layer</div>
+          <div class="action-text">SISBOV farm GPS data cross-referenced against MapBiomas/PRODES deforestation databases. Preliminary risk score generated. CAR registry status checked. Modern Slavery Act obligation flagged for in-scope importers. Framework ready for Environment Act 2021 when secondary legislation is enacted.</div>
+        </div>
+        <div class="action-card action-tw">
+          <div class="action-label label-tw">Visibility layer</div>
+          <div class="action-text">Environmental risk score and CAR compliance status visible to buyers and institutional clients via TWIN. VC structure aligned with emerging EU Digital Product Passport (DPP) framework for food commodities — future cross-border regulatory recognition pathway.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="footnote">
+    <strong>Note on this visual:</strong> This is a working model for discussion — not a proposed division of labour. The question of which party owns or builds each action is exactly what this call is exploring. The compliance and visibility labels reflect the TWIN lead's framing from his email and are intended as a conversation anchor, not a finished architecture.
+  </div>
+
+  <div class="footer">VeriPura × TWIN — Brazil to GB beef import process flow &nbsp;·&nbsp; March 2026 &nbsp;·&nbsp; Working model for discussion</div>
+
+</div>
+<script>
+function toggle(id) {
+  const el = document.getElementById(id);
+  el.classList.toggle('open');
+}
+</script>
+</body>
+</html>
