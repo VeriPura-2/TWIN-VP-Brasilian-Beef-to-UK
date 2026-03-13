@@ -6,41 +6,41 @@
 <title>Brazil → GB Beef Import Process Flow — VeriPura × TWIN</title>
 <style>
   * { box-sizing: border-box; margin: 0; padding: 0; }
-  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #f5f4f0; color: #1a1a18; padding: 2rem; }
-  .page { max-width: 900px; margin: 0 auto; }
-  .flow-header { background: #fff; border-radius: 12px; border: 0.5px solid #d3d1c7; padding: 1.5rem 1.75rem; margin-bottom: 1rem; }
-  .flow-title { font-size: 20px; font-weight: 500; color: #1a1a18; margin-bottom: 4px; }
-  .flow-sub { font-size: 13px; color: #5f5e5a; margin-bottom: 1rem; }
-  .legend { display: flex; gap: 20px; flex-wrap: wrap; align-items: center; }
-  .legend-item { display: flex; align-items: center; gap: 6px; font-size: 12px; color: #5f5e5a; }
-  .legend-dot { width: 10px; height: 10px; border-radius: 50%; }
-  .hypothesis-banner { background: #e6f1fb; border: 0.5px solid #b5d4f4; border-radius: 8px; padding: 10px 14px; margin-bottom: 1rem; font-size: 12px; color: #185fa5; line-height: 1.55; }
+  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #f5f4f0; color: #1a1a18; padding: 2.5rem; }
+  .page { max-width: 1100px; margin: 0 auto; }
+  .flow-header { background: #fff; border-radius: 12px; border: 0.5px solid #d3d1c7; padding: 2rem 2.25rem; margin-bottom: 1.25rem; }
+  .flow-title { font-size: 28px; font-weight: 500; color: #1a1a18; margin-bottom: 6px; }
+  .flow-sub { font-size: 17px; color: #5f5e5a; margin-bottom: 1.25rem; line-height: 1.5; }
+  .legend { display: flex; gap: 28px; flex-wrap: wrap; align-items: center; }
+  .legend-item { display: flex; align-items: center; gap: 8px; font-size: 16px; color: #5f5e5a; }
+  .legend-dot { width: 14px; height: 14px; border-radius: 50%; flex-shrink: 0; }
+  .hypothesis-banner { background: #e6f1fb; border: 0.5px solid #b5d4f4; border-radius: 8px; padding: 14px 18px; margin-bottom: 1.25rem; font-size: 16px; color: #185fa5; line-height: 1.6; }
   .hypothesis-banner strong { font-weight: 500; }
-  .phase { background: #fff; border: 0.5px solid #d3d1c7; border-radius: 10px; margin-bottom: 8px; overflow: hidden; }
-  .phase-header { display: flex; align-items: center; gap: 12px; padding: 11px 16px; cursor: pointer; background: #fafaf8; user-select: none; transition: background 0.15s; }
+  .phase { background: #fff; border: 0.5px solid #d3d1c7; border-radius: 10px; margin-bottom: 10px; overflow: hidden; }
+  .phase-header { display: flex; align-items: center; gap: 16px; padding: 16px 20px; cursor: pointer; background: #fafaf8; user-select: none; transition: background 0.15s; }
   .phase-header:hover { background: #f0efe9; }
-  .phase-num { font-size: 11px; font-weight: 500; color: #888780; min-width: 22px; }
-  .phase-name { font-size: 14px; font-weight: 500; color: #1a1a18; flex: 1; }
-  .phase-loc { font-size: 12px; color: #888780; }
-  .chevron { font-size: 13px; color: #888780; transition: transform 0.2s; display: inline-block; }
+  .phase-num { font-size: 15px; font-weight: 500; color: #888780; min-width: 28px; }
+  .phase-name { font-size: 20px; font-weight: 500; color: #1a1a18; flex: 1; }
+  .phase-loc { font-size: 16px; color: #888780; }
+  .chevron { font-size: 18px; color: #888780; transition: transform 0.2s; display: inline-block; }
   .phase.open .chevron { transform: rotate(90deg); }
-  .phase-body { display: none; padding: 14px 16px 16px; border-top: 0.5px solid #d3d1c7; }
+  .phase-body { display: none; padding: 18px 20px 22px; border-top: 0.5px solid #d3d1c7; }
   .phase.open .phase-body { display: block; }
-  .doc-list { font-size: 12px; color: #5f5e5a; margin-bottom: 12px; line-height: 1.7; }
+  .doc-list { font-size: 16px; color: #5f5e5a; margin-bottom: 16px; line-height: 1.75; }
   .doc-list strong { color: #1a1a18; font-weight: 500; }
-  .action-row { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
-  .action-card { border-radius: 8px; padding: 10px 12px; border: 0.5px solid; }
+  .action-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+  .action-card { border-radius: 8px; padding: 14px 16px; border: 0.5px solid; }
   .action-vp { background: #eef2fb; border-color: #b5c4e8; }
   .action-tw { background: #e8f5ef; border-color: #9fd4b8; }
-  .action-label { font-size: 10px; font-weight: 500; letter-spacing: 0.05em; text-transform: uppercase; margin-bottom: 5px; }
+  .action-label { font-size: 13px; font-weight: 600; letter-spacing: 0.05em; text-transform: uppercase; margin-bottom: 8px; }
   .label-vp { color: #3b5fc0; }
   .label-tw { color: #1a7a4a; }
-  .action-text { font-size: 12px; color: #2c2c2a; line-height: 1.55; }
+  .action-text { font-size: 16px; color: #2c2c2a; line-height: 1.65; }
   .connector { display: flex; justify-content: center; margin: 0; }
-  .connector-line { width: 1px; height: 8px; background: #b4b2a9; }
-  .footnote { margin-top: 1.25rem; padding: 12px 14px; border-radius: 8px; border: 0.5px solid #d3d1c7; background: #fafaf8; font-size: 12px; color: #5f5e5a; line-height: 1.6; }
+  .connector-line { width: 1px; height: 10px; background: #b4b2a9; }
+  .footnote { margin-top: 1.5rem; padding: 16px 18px; border-radius: 8px; border: 0.5px solid #d3d1c7; background: #fafaf8; font-size: 16px; color: #5f5e5a; line-height: 1.7; }
   .footnote strong { color: #1a1a18; font-weight: 500; }
-  .footer { margin-top: 1.5rem; font-size: 11px; color: #888780; text-align: center; }
+  .footer { margin-top: 1.75rem; font-size: 15px; color: #888780; text-align: center; }
   @media print {
     body { background: #fff; padding: 0; }
     .phase-body { display: block !important; }
