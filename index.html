@@ -13,7 +13,7 @@
   .site-header {
     display: flex;
     align-items: center;
-    padding: 0 0 1.5rem 0;
+    padding: 0 0 2rem 0;
   }
   .site-header a {
     display: inline-block;
@@ -22,6 +22,9 @@
   .site-header img {
     height: 52px;
     width: auto;
+    display: block;
+    /* This makes the white background of the logo transparent */
+    mix-blend-mode: multiply;
   }
 
   .flow-header { background: #fff; border-radius: 12px; border: 0.5px solid #d3d1c7; padding: 2rem 2.25rem; margin-bottom: 1.25rem; }
